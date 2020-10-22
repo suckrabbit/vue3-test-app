@@ -1,0 +1,23 @@
+$fonts: (
+        'Merriweather-Black': '~@/assets/fonts/Merriweather-Black.ttf',
+        'Merriweather-BlackItalic': '~@/assets/fonts/Merriweather-BlackItalic.ttf',
+        'Merriweather-Bold': '~@/assets/fonts/Merriweather-Bold.ttf',
+        'Merriweather-BoldItalic': '~@/assets/fonts/Merriweather-BoldItalic.ttf',
+        'Merriweather-Italic': '~@/assets/fonts/Merriweather-Italic.ttf',
+        'Merriweather-Light': '~@/assets/fonts/Merriweather-Light.ttf',
+        'Merriweather-LightItalic': '~@/assets/fonts/Merriweather-LightItalic.ttf',
+        'Merriweather-Regular': '~@/assets/fonts/Merriweather-Regular.ttf',
+);
+
+@each $font, $url in $fonts {
+  @font-face {
+    font-family: "#{$font}";
+    src: url("#{$url}");
+  }
+}
+
+@mixin setFont($fontName: Merriweather-Regular, $size: 1rem, $weigh: normal) {
+  font-family: #{$fontName};
+  font-size: $size;
+  font-weight: $weigh;
+}

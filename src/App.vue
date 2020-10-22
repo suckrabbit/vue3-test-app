@@ -1,30 +1,70 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+  <div class="app">
+    <router-view name="header" class="header" />
+    <main class="main">
+      <router-view name="content" />
+    </main>
+    <router-view name="footer" />
   </div>
-  <router-view/>
 </template>
 
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+@import 'assets/scss/font_style';
+@import 'assets/scss/normalize';
+
+* {
+  @include setFont('Merriweather-Regular', 14px);
+  line-height: 21px;
+}
+.app {
+  height: 100vh;
+  width: 100vw;
+  max-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  .main {
+    display: flex;
+    flex: 1;
+    overflow-y: auto;
+    background-color: $background_main_color;
+  }
+}
+.main,
+.header,
+.footer {
+  padding: 0 15px;
 }
 
-#nav {
-  padding: 30px;
+@media (min-width: 575.98px) {
+  .main,
+  .header,
+  .footer {
+    padding: 0 calc(50vw - 270px);
+  }
+}
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
+@media (min-width: 767.98px) {
+  .main,
+  .header,
+  .footer {
+    padding: 0 calc(50vw - 360px);
+  }
+}
 
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+@media (min-width: 991.98px) {
+  .main,
+  .header,
+  .footer {
+    padding: 0 calc(50vw - 480px);
+  }
+}
+
+@media (min-width: 1199.98px) {
+  .main,
+  .header,
+  .footer {
+    padding: 0 calc(50vw - 620px);
   }
 }
 </style>
